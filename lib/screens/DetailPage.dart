@@ -60,6 +60,7 @@ class _DetailPageState extends State<DetailPage> {
           } else {
             return Container(
               height: 70,
+              padding: EdgeInsets.all(20),
               margin: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 boxShadow: [
@@ -72,7 +73,26 @@ class _DetailPageState extends State<DetailPage> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
-              child: Text('${widget.category.expenses[index - 1].name}'),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '${widget.category.expenses[index - 1].name}',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  Text(
+                    '- \$${widget.category.expenses[index - 1].cost.toStringAsFixed(2)}',
+                    style: TextStyle(
+                      color: Colors.red,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                ],
+              ),
             );
           }
         },
